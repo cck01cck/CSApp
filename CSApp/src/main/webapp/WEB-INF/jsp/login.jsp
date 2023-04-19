@@ -143,7 +143,13 @@
     <p>You have logged out.</p>
 </c:if>
 <h2></h2>
-
+<div style="text-align: right;padding:5px;margin:5px 0px;background:#ccc;">
+    <a href="${pageContext.request.contextPath}/login?lang=en">Login (English)</a>
+    &nbsp;|&nbsp;
+    <a href="${pageContext.request.contextPath}/login?lang=fr">Login (French)</a>
+    &nbsp;|&nbsp;
+    <a href="${pageContext.request.contextPath}/login?lang=vi">Login (Vietnamese)</a>
+</div>
 <div class="wrapper">
     <div class="title">Login Form</div>
     <form action="login" method="POST">
