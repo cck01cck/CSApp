@@ -168,6 +168,9 @@
         </div>
         <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
     </form>
+    <form method="get" action="register">
+        <input type="submit" value="register">
+    </form>
 </div>
 </body>
 </html>
