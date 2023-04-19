@@ -160,17 +160,20 @@
                 <input type="checkbox" id="remember-me" name="remember-me">
                 <label for="remember-me">Remember me</label>
             </div>
-            <div class="pass-link"><a href="#">Forgot password?</a></div>
+            <div class="pass-link"></div>
         </div>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="field">
             <input type="submit" value="Log In">
         </div>
-        <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
+
     </form>
-    <form method="get" action="register">
-        <input type="submit" value="register">
-    </form>
+    <center>
+    <div class="signup-link">Not a member?
+        <form method="get" action="register">
+            <input type="submit" value="Register">
+        </form></div></center>
+
 </div>
 </body>
 </html>
