@@ -27,6 +27,11 @@ public class TicketService {
     }
 
     @Transactional
+    public List<Attachment> getImgs() {
+        return aRepo.findAll();
+    }
+
+    @Transactional
     public Ticket getTicket(long id)
             throws TicketNotFound {
         Ticket ticket = tRepo.findById(id).orElse(null);

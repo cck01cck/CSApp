@@ -166,6 +166,10 @@
         <div class="field">
             <input type="submit" value="Log In">
         </div>
+        <c:forEach items="${UserDatabase}" var="attachment">
+            <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />">
+        </c:forEach><br/><br/>
+
 
     </form>
     <center>

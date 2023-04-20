@@ -35,6 +35,14 @@ public class TicketController {
         return "list";
     }
 
+
+    //list全部圖片
+    @GetMapping(value = {"/login2"})
+    public String SHowAll(ModelMap model) {
+        model.addAttribute("UserDatabase", tService.getImgs());
+        return "login";
+    }
+
     @GetMapping("/create")
     public ModelAndView create() {
         return new ModelAndView("add", "ticketForm", new Form());
