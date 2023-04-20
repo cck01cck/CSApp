@@ -24,21 +24,32 @@
         color: white;
     }
 </style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <head><title>User Management</title></head>
 <body>
-<c:url var="logoutUrl" value="/logout"/>
-<form action="${logoutUrl}" method="post">
-    <input type="submit" value="Log out"/>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-</form>
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+        <a href="#home" class="w3-bar-item w3-button">Photo Blog</a>
+        <!-- Right-sided navbar links. Hide them on small screens -->
+
+        <div class="w3-right w3-hide-small">
+            <a href="<c:url value="/user/create" />" class="w3-bar-item w3-button">Create a User</a>
+            <a href="<c:url value="/ticket" />" class="w3-bar-item w3-button">Return to list tickets</a>
+            <a href="#" class="w3-bar-item w3-button"><c:url var="logoutUrl" value="/logout"/>
+                <form action="${logoutUrl}" method="post">
+                    <input type="submit" value="Log out" />
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </form></a>
+        </div>
+    </div>
+</div>
 
 <br/><br/>
 
-<a href="<c:url value="/ticket" />">Return to list tickets</a>
 
 <h2>Users</h2>
 
-<a href="<c:url value="/user/create" />">Create a User</a><br/><br/>
+<br/><br/>
 
 <c:choose>
     <c:when test="${fn:length(ticketUsers) == 0}">

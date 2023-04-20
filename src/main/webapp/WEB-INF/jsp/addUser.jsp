@@ -16,13 +16,23 @@
             display: block;
         }
     </style>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-<c:url var="logoutUrl" value="/logout"/>
-<form action="${logoutUrl}" method="post">
-    <input type="submit" value="Log out"/>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-</form>
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+        <a href="#home" class="w3-bar-item w3-button">Photo Blog</a>
+        <!-- Right-sided navbar links. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+            <a href="<c:url value="/user" />" class="w3-bar-item w3-button">Return to list users</a>
+            <a href="#" class="w3-bar-item w3-button"><c:url var="logoutUrl" value="/logout"/>
+                <form action="${logoutUrl}" method="post">
+                    <input type="submit" value="Log out" />
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </form></a>
+        </div>
+    </div>
+</div>
 
 <h2>Create a User</h2>
 <form:form method="POST" modelAttribute="ticketUser">

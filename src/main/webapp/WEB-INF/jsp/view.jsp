@@ -19,7 +19,6 @@
         <a href="#home" class="w3-bar-item w3-button">Photo Blog</a>
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
-            <a href="#about" class="w3-bar-item w3-button">About</a>
             <a href="<c:url value="/ticket" />" class="w3-bar-item w3-button">Return to list tickets</a>
             <a href="#" class="w3-bar-item w3-button"><c:url var="logoutUrl" value="/logout"/>
                 <form action="${logoutUrl}" method="post">
