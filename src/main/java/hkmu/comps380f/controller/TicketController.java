@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
+
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
@@ -35,14 +36,6 @@ public class TicketController {
         return "list";
     }
 
-
-    //list全部圖片
-    @GetMapping(value = {"/login2"})
-    public String SHowAll(ModelMap model) {
-        model.addAttribute("UserDatabase", tService.getImgs());
-        return "login";
-    }
-
     @GetMapping("/create")
     public ModelAndView create() {
         return new ModelAndView("add", "ticketForm", new Form());
@@ -52,9 +45,6 @@ public class TicketController {
         private String subject;
         private String body;
         private List<MultipartFile> attachments;
-
-
-
 
         // Getters and Setters of customerName, subject, body, attachments
         public String getSubject() {
@@ -80,13 +70,12 @@ public class TicketController {
         public void setAttachments(List<MultipartFile> attachments) {
             this.attachments = attachments;
         }
-
     }
 
     @PostMapping("/create")
     public View create(Form form, Principal principal) throws IOException {
         long ticketId = tService.createTicket(principal.getName(),
-                form.getSubject(), form.getBody(),form.getAttachments());
+                form.getSubject(), form.getBody(), form.getAttachments());
         return new RedirectView("/ticket/view/" + ticketId, true);
     }
 
@@ -106,7 +95,7 @@ public class TicketController {
             throws TicketNotFound, AttachmentNotFound {
         Attachment attachment = tService.getAttachment(ticketId, attachmentId);
         return new DownloadingView(attachment.getName(),
-                    attachment.getMimeContentType(), attachment.getContents());
+                attachment.getMimeContentType(), attachment.getContents());
     }
 
     @GetMapping("/delete/{ticketId}")
@@ -167,4 +156,3 @@ public class TicketController {
         return new ModelAndView("error", "message", e.getMessage());
     }
 }
-

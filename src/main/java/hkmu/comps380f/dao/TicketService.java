@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Service
@@ -25,12 +26,10 @@ public class TicketService {
     public List<Ticket> getTickets() {
         return tRepo.findAll();
     }
-
     @Transactional
     public List<Attachment> getImgs() {
         return aRepo.findAll();
     }
-
     @Transactional
     public Ticket getTicket(long id)
             throws TicketNotFound {
@@ -89,7 +88,7 @@ public class TicketService {
         ticket.setCustomerName(customerName);
         ticket.setSubject(subject);
         ticket.setBody(body);
-
+        ticket.setDate(new Timestamp(System.currentTimeMillis()));
         for (MultipartFile filePart : attachments) {
             Attachment attachment = new Attachment();
             attachment.setName(filePart.getOriginalFilename());

@@ -19,7 +19,7 @@
     [<a href="<c:url value="/ticket/delete/${ticket.id}" />">Delete</a>]
 </security:authorize>
 <br/><br/>
-<i>Customer Name - <c:out value="${ticket.customerName}"/></i><br/><br/>
+<i>Customer Name - <c:out value="${ticket.date}"/></i><br/><br/>
 <c:out value="${ticket.body}"/><br/><br/>
 <c:if test="${!empty ticket.attachments}">
     Attachments:
