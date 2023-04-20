@@ -71,8 +71,10 @@
         <a href="#home" class="w3-bar-item w3-button">Photo Blog</a>
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
-            <a href="#about" class="w3-bar-item w3-button">About</a>
-            <a href="<c:url value="/ticket" />" class="w3-bar-item w3-button">Return to list tickets</a>
+            <a href="<c:url value="/ticket/create" />" class="w3-bar-item w3-button">Create a Ticket</a>
+            <security:authorize access="hasRole('ADMIN')">
+                <a href="<c:url value="/user" />" class="w3-bar-item w3-button">Manage User Accounts</a>
+            </security:authorize>
             <a href="#" class="w3-bar-item w3-button"><c:url var="logoutUrl" value="/logout"/>
                 <form action="${logoutUrl}" method="post">
                     <input type="submit" value="Log out" />
@@ -82,16 +84,9 @@
     </div>
 </div>
 
-
 <h2>Tickets</h2>
-
-
-
-
-<security:authorize access="hasRole('ADMIN')">
-  <a href="<c:url value="/user" />">Manage User Accounts</a><br /><br />
-</security:authorize>
-<a href="<c:url value="/ticket/create" />">Create a Ticket</a><br/><br/>
+<h2>Photo</h2>
+<center>
 <c:choose>
   <c:when test="${fn:length(ticketDatabase) == 0}">
     <i>There are no tickets in the system.</i>
@@ -128,6 +123,7 @@
       </c:forEach>
     </c:forEach>
       </div>
+    </center>
   </c:otherwise>
 
 
