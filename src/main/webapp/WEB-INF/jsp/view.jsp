@@ -31,5 +31,6 @@
     </c:forEach><br/><br/>
 </c:if>
 <a href="<c:url value="/ticket" />">Return to list tickets</a>
+
 </body>
 </html>

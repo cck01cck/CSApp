@@ -47,6 +47,12 @@
       color: white;
       transform: rotateY(180deg);
     }
+    .column {
+        float: left;
+        width: 18%;
+        padding: 1px;
+        height: 300px; /* Should be removed. Only for demonstration */
+    }
   </style>
 </head>
 <body>
@@ -75,7 +81,8 @@
     <c:forEach var="attachment" items="${UserDatabase}" varStatus="status">
       <c:forEach var="entry" items="${ticketDatabase}" varStatus="innerStatus" begin="0">
         <c:if test="${status.count == innerStatus.count}">
-            <br> <br><div class="flip-card">
+        <div class="column">
+            <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
           <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />" width="300" height="300">
@@ -95,6 +102,7 @@
     </div>
   </div>
 </div>
+        </div>
         </c:if>
       </c:forEach>
     </c:forEach>
