@@ -19,14 +19,13 @@
     [<a href="<c:url value="/ticket/delete/${ticket.id}" />">Delete</a>]
 </security:authorize>
 <br/><br/>
-<i>Customer Name - <c:out value="${ticket.customerName}"/></i><br/><br/>
+<i>Customer Name - <c:out value="${ticket.date}"/></i><br/><br/>
 <c:out value="${ticket.body}"/><br/><br/>
 <c:if test="${!empty ticket.attachments}">
     Attachments:
     <c:forEach items="${ticket.attachments}" var="attachment" varStatus="status">
         <c:if test="${!status.first}">, </c:if>
         <img src="<c:url value="/ticket/${ticketId}/attachment/${attachment.id}" />">
-            <c:out value="${attachment.name}"/></img>
         [<a href="<c:url value="/ticket/${ticketId}/delete/${attachment.id}" />">Delete</a>]
     </c:forEach><br/><br/>
 </c:if>

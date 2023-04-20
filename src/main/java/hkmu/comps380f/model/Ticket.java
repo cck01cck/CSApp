@@ -1,8 +1,10 @@
 package hkmu.comps380f.model;
 
 import jakarta.persistence.*;
+import java.sql.Timestamp;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,8 @@ public class Ticket {
     private String customerName;
     private String subject;
     private String body;
+    @Column(name = "DAT")
+    private Timestamp date;
 
     @OneToMany(mappedBy = "ticket", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
@@ -55,6 +59,13 @@ public class Ticket {
 
     public void setBody(String body) {
         this.body = body;
+    }
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
     }
 
 
