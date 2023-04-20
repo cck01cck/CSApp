@@ -189,8 +189,8 @@
 </head>
 <body>
 <div class="navbar">
-    <a href="#home"><spring:message code="label.MainPage"/></a>
-    <a href="#news"><spring:message code="label.LoginPage"/></a>
+    <a href="${pageContext.request.contextPath}/Home?"><spring:message code="label.MainPage"/></a>
+    <a href="${pageContext.request.contextPath}/login?"><spring:message code="label.LoginPage"/></a>
     <div class="dropdown">
         <button class="dropbtn"><spring:message code="label.language"/>
             <i class="fa fa-caret-down"></i>
