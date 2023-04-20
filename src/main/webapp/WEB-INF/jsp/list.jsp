@@ -78,10 +78,10 @@
         <a href="<c:url value="/ticket/view/${entry.id}" />">
             <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />" width="300" height="300"></a>
                 <div class="container">
-          Ticket ${entry.date}:${entry.id}
+                    <p>upload time:${entry.date}</p>
           <a href="<c:url value="/ticket/view/${entry.id}" />">
             <c:out value="${entry.subject}"/></a>
-          (customer: <c:out value="${entry.customerName}"/>)
+          (user: <c:out value="${entry.customerName}"/>)</br></br>
           <security:authorize access="hasRole('ADMIN') or
                                 principal.username=='${entry.customerName}'">
             [<a href="<c:url value="/ticket/edit/${entry.id}" />">Edit</a>]

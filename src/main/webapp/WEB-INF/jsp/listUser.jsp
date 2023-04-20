@@ -4,7 +4,7 @@
     #customers {
         font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
-        width: 100%;
+        width: 80%;
     }
 
     #customers td, #customers th {
@@ -56,7 +56,8 @@
         <i>There are no users in the system.</i>
     </c:when>
     <c:otherwise>
-        <table id="customers">
+<center>
+        <table id="customers" >
             <tr>
                 <th>Username</th>
                 <th>Password</th>
@@ -79,6 +80,7 @@
                 </tr>
             </c:forEach>
         </table>
+    </center>
     </c:otherwise>
 </c:choose>
 </body>
