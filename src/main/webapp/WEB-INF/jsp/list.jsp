@@ -11,6 +11,11 @@
 </form>
 
 <h2>Tickets</h2>
+
+<c:forEach items="${UserDatabase}" var="attachment">
+  <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />">
+</c:forEach><br/><br/>
+
 <security:authorize access="hasRole('ADMIN')">
   <a href="<c:url value="/user" />">Manage User Accounts</a><br /><br />
 </security:authorize>
@@ -19,6 +24,7 @@
   <c:when test="${fn:length(ticketDatabase) == 0}">
     <i>There are no tickets in the system.</i>
   </c:when>
+
   <c:otherwise>
     <c:forEach items="${ticketDatabase}" var="entry">
       Ticket ${entry.id}:
@@ -35,6 +41,7 @@
       <br />
     </c:forEach>
   </c:otherwise>
+
 </c:choose>
 </body>
 </html>

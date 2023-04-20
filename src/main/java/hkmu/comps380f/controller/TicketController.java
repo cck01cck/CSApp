@@ -31,6 +31,7 @@ public class TicketController {
     @GetMapping(value = {"", "/list"})
     public String list(ModelMap model) {
         model.addAttribute("ticketDatabase", tService.getTickets());
+        model.addAttribute("UserDatabase", tService.getImgs());
         return "list";
     }
 
