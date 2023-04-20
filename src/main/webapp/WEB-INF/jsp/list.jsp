@@ -2,6 +2,52 @@
 <html>
 <head>
   <title>Customer Support</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 300px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+      background-color: #000000;
+      color: black;
+    }
+
+    .flip-card-back {
+      background-color: #37f14f;
+      color: white;
+      transform: rotateY(180deg);
+    }
+  </style>
 </head>
 <body>
 <c:url var="logoutUrl" value="/logout"/>
@@ -12,9 +58,8 @@
 
 <h2>Tickets</h2>
 
-<c:forEach items="${UserDatabase}" var="attachment">
-  <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />">
-</c:forEach><br/><br/>
+
+
 
 <security:authorize access="hasRole('ADMIN')">
   <a href="<c:url value="/user" />">Manage User Accounts</a><br /><br />
@@ -26,21 +71,36 @@
   </c:when>
 
   <c:otherwise>
-    <c:forEach items="${ticketDatabase}" var="entry">
-      Ticket ${entry.id}:
-      <a href="<c:url value="/ticket/view/${entry.id}" />">
-        <c:out value="${entry.subject}"/></a>
-      (customer: <c:out value="${entry.customerName}"/>)
-      <security:authorize access="hasRole('ADMIN') or
+      <div class="row">
+    <c:forEach var="attachment" items="${UserDatabase}" varStatus="status">
+      <c:forEach var="entry" items="${ticketDatabase}" varStatus="innerStatus" begin="0">
+        <c:if test="${status.count == innerStatus.count}">
+            <br> <br><div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+          <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />" width="300" height="300">
+    </div>
+    <div class="flip-card-back">
+          Ticket ${entry.date}:${entry.id}
+          <a href="<c:url value="/ticket/view/${entry.id}" />">
+            <c:out value="${entry.subject}"/></a>
+          (customer: <c:out value="${entry.customerName}"/>)
+          <security:authorize access="hasRole('ADMIN') or
                                 principal.username=='${entry.customerName}'">
-        [<a href="<c:url value="/ticket/edit/${entry.id}" />">Edit</a>]
-      </security:authorize>
-      <security:authorize access="hasRole('ADMIN')">
-        [<a href="<c:url value="/ticket/delete/${entry.id}" />">Delete</a>]
-      </security:authorize>
-      <br />
+            [<a href="<c:url value="/ticket/edit/${entry.id}" />">Edit</a>]
+          </security:authorize>
+          <security:authorize access="hasRole('ADMIN')">
+            [<a href="<c:url value="/ticket/delete/${entry.id}" />">Delete</a>]
+          </security:authorize>
+    </div>
+  </div>
+</div>
+        </c:if>
+      </c:forEach>
     </c:forEach>
+      </div>
   </c:otherwise>
+
 
 </c:choose>
 </body>
