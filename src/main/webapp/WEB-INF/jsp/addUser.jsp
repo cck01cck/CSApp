@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet"
+          href=
+                  "https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
+          crossorigin="anonymous">
+    <script src=
+                    "https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
+            crossorigin="anonymous"></script>
     <title>Customer Support</title>
     <style>
         .error {
@@ -19,6 +26,8 @@
 
 <h2>Create a User</h2>
 <form:form method="POST" modelAttribute="ticketUser">
+<div class="grid-container"
+     style="width: 40%;">
     <form:label path="username">Username</form:label><br/>
     <form:errors path="username" cssClass="error" />
     <form:input type="text" path="username"/><br/><br/>
@@ -34,6 +43,7 @@
     <form:checkbox path="roles" value="ROLE_ADMIN"/>ROLE_ADMIN
     <br/><br/>
     <input type="submit" value="Add User"/>
+</div>
 </form:form>
 </body>
 </html>
