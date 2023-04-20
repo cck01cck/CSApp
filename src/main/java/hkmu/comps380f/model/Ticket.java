@@ -23,6 +23,7 @@ public class Ticket {
     private List<Attachment> attachments = new ArrayList<>();
 
     // getters and setters of all properties
+
     public long getId() {
         return id;
     }
@@ -47,6 +48,7 @@ public class Ticket {
         this.subject = subject;
     }
 
+
     public String getBody() {
         return body;
     }
@@ -54,6 +56,7 @@ public class Ticket {
     public void setBody(String body) {
         this.body = body;
     }
+
 
     public List<Attachment> getAttachments() {
         return attachments;
