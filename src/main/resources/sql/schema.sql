@@ -3,6 +3,7 @@ create table if not exists ticket (
     body varchar(255),
     name varchar(255),
     subject varchar(255),
+    dat TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     primary key (id)
 );
 create table if not exists attachment (
@@ -10,6 +11,7 @@ create table if not exists attachment (
     content blob,
     content_type varchar(255),
     filename varchar(255),
+
     ticket_id bigint,
     primary key (id),
     foreign key (ticket_id) references ticket

@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
@@ -45,6 +44,9 @@ public class TicketController {
         private String body;
         private List<MultipartFile> attachments;
 
+
+
+
         // Getters and Setters of customerName, subject, body, attachments
         public String getSubject() {
             return subject;
@@ -69,12 +71,13 @@ public class TicketController {
         public void setAttachments(List<MultipartFile> attachments) {
             this.attachments = attachments;
         }
+
     }
 
     @PostMapping("/create")
     public View create(Form form, Principal principal) throws IOException {
         long ticketId = tService.createTicket(principal.getName(),
-                form.getSubject(), form.getBody(), form.getAttachments());
+                form.getSubject(), form.getBody(),form.getAttachments());
         return new RedirectView("/ticket/view/" + ticketId, true);
     }
 
