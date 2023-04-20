@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-        <title>Register</title>
+        <title><spring:message code="label.title"/></title>
         <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
         *{
                 margin: 0;
@@ -133,11 +134,75 @@
         form .signup-link a:hover{
                 text-decoration: underline;
         }
+        .navbar {
+                overflow: hidden;
+                background-color: #333;
+        }
+        .navbar a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+        }
+        .dropdown {
+                float: left;
+                overflow: hidden;
+        }
+        .dropdown .dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+        }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: red;
+        }
+        .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+        }
+        .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+        }
+        .dropdown-content a:hover {
+                background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+                display: block;
+        }
         </style>
 </head>
 <body>
-<h1></h1>
 
+<div class="navbar">
+        <a href="#home"><spring:message code="label.MainPage"/></a>
+        <a href="#news"><spring:message code="label.LoginPage"/></a>
+        <div class="dropdown">
+                <button class="dropbtn"><spring:message code="label.language"/>
+                        <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                        <a href="${pageContext.request.contextPath}/register?lang=en">English</a>
+                        <a href="${pageContext.request.contextPath}/register?lang=fr">France</a>
+                        <a href="${pageContext.request.contextPath}/register?lang=zh_TW">Chinese Traditional</a>
+                </div>
+        </div>
+</div>
 <c:if test="${not empty message}">
         <div class="alert alert-success">${message}</div>
 </c:if>
@@ -145,22 +210,23 @@
 <c:if test="${not empty error}">
         <div class="alert alert-danger">${error}</div>
 </c:if>
+
 <div class="wrapper">
-        <div class="title">Register Form</div>
+        <div class="title"><spring:message code="label.Register"/></div>
 <form name="register2" method="GET" action="register2">
         <div class="form-group"><div class="field">
 
                 <input type="text" class="form-control" id="username" name="username">
-                <label for="username">Username</label>
+                <label for="username"><spring:message code="label.userName"/></label>
         </div>
         </div>
         <div class="form-group"><div class="field">
 
                 <input type="password" class="form-control" id="password" name="password">
-                <label for="password">Password</label>
+                <label for="password"><spring:message code="label.password"/></label>
         </div></div>
         <div class="field">
-                <input type="submit" value="Register">
+                <input type="submit" value=<spring:message code="label.Register"/>>
         </div>
 </form>
 </div>
