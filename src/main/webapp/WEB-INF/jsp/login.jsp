@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-    <title>Login</title>
+    <title><spring:message code="label.title"/></title>
     <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
     *{
         margin: 0;
@@ -137,7 +138,6 @@
         overflow: hidden;
         background-color: #333;
     }
-
     .navbar a {
         float: left;
         font-size: 16px;
@@ -146,12 +146,10 @@
         padding: 14px 16px;
         text-decoration: none;
     }
-
     .dropdown {
         float: left;
         overflow: hidden;
     }
-
     .dropdown .dropbtn {
         font-size: 16px;
         border: none;
@@ -162,11 +160,9 @@
         font-family: inherit;
         margin: 0;
     }
-
     .navbar a:hover, .dropdown:hover .dropbtn {
         background-color: red;
     }
-
     .dropdown-content {
         display: none;
         position: absolute;
@@ -175,7 +171,6 @@
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
     }
-
     .dropdown-content a {
         float: none;
         color: black;
@@ -184,11 +179,9 @@
         display: block;
         text-align: left;
     }
-
     .dropdown-content a:hover {
         background-color: #ddd;
     }
-
     .dropdown:hover .dropdown-content {
         display: block;
     }
@@ -196,15 +189,16 @@
 </head>
 <body>
 <div class="navbar">
-    <a href="#home">Home</a>
-    <a href="#news">Log In</a>
+    <a href="#home"><spring:message code="label.MainPage"/></a>
+    <a href="#news"><spring:message code="label.LoginPage"/></a>
     <div class="dropdown">
-        <button class="dropbtn">Languages
+        <button class="dropbtn"><spring:message code="label.language"/>
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="#">English</a>
-            <a href="#">Traditional Chinese</a>
+            <a href="${pageContext.request.contextPath}/login?lang=en">English</a>
+            <a href="${pageContext.request.contextPath}/login?lang=fr">France</a>
+            <a href="${pageContext.request.contextPath}/login?lang=zh_TW">Chinese Traditional</a>
         </div>
     </div>
 </div>
@@ -217,26 +211,26 @@
 <h2></h2>
 
 <div class="wrapper">
-    <div class="title">Login Form</div>
+    <div class="title"><spring:message code="label.loginForm"/></div>
     <form action="login" method="POST">
         <div class="field">
             <input type="text" type="text" id="username" name="username">
-            <label>User Name</label>
+            <label><spring:message code="label.userName"/></label>
         </div>
         <div class="field">
             <input type="password" id="password" name="password">
-            <label>Password</label>
+            <label><spring:message code="label.password"/></label>
         </div>
         <div class="content">
             <div class="checkbox">
                 <input type="checkbox" id="remember-me" name="remember-me">
-                <label for="remember-me">Remember me</label>
+                <label for="remember-me"><spring:message code="label.rememberMe"/></label>
             </div>
             <div class="pass-link"></div>
         </div>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="field">
-            <input type="submit" value="Log In">
+            <input type="submit" value=<spring:message code="label.loginButton"/>>
         </div>
         <c:forEach items="${UserDatabase}" var="attachment">
             <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />">
@@ -245,10 +239,10 @@
 
     </form>
     <center>
-    <div class="signup-link">Not a member?
-        <form method="get" action="register">
-            <input type="submit" value="Register">
-        </form></div></center>
+        <div class="signup-link"><spring:message code="label.NotAMember"/>
+            <form method="get" action="register">
+                <input type="submit" value=<spring:message code="label.Register"/>>
+            </form></div></center>
 
 </div>
 </body>
