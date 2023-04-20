@@ -8,44 +8,20 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    .flip-card {
-      background-color: transparent;
-      width: 300px;
-      height: 300px;
-      perspective: 1000px;
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 300px;
+
     }
 
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
 
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-
-    .flip-card-front {
-      background-color: #000000;
-      color: black;
-    }
-
-    .flip-card-back {
-      background-color: #d5ad2b;
-      color: white;
-      transform: rotateY(180deg);
+    .container {
+        padding: 2px 16px;
+        width: 300px;
     }
     .column {
         float: left;
@@ -98,12 +74,10 @@
       <c:forEach var="entry" items="${ticketDatabase}" varStatus="innerStatus" begin="0">
         <c:if test="${status.count == innerStatus.count}">
         <div class="column">
-            <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-          <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />" width="300" height="300">
-    </div>
-    <div class="flip-card-back">
+            <div class="card">
+        <a href="<c:url value="/ticket/view/${entry.id}" />">
+            <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />" width="300" height="300"></a>
+                <div class="container">
           Ticket ${entry.date}:${entry.id}
           <a href="<c:url value="/ticket/view/${entry.id}" />">
             <c:out value="${entry.subject}"/></a>
