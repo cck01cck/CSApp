@@ -104,7 +104,7 @@
         padding-left: 5px;
     }
     form .content .pass-link{
-
+        color: "";
     }
     form .field input[type="submit"]{
         color: #fff;
@@ -236,9 +236,8 @@
             <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />">
         </c:forEach><br/><br/>
 
-        <c:forEach items="${UserDatabase}" var="attachment">
-            <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />">
-        </c:forEach><br/><br/>
+
+    </form>
     <center>
         <div class="signup-link"><spring:message code="label.NotAMember"/>
             <form method="get" action="register">
