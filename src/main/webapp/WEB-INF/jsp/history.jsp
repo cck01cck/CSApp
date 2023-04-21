@@ -70,6 +70,7 @@
             <tr>
                 <th>Username</th>
                 <th>Photoname</th>
+                <th>Description</th>
                 <th>Date and Time</th>
             </tr>
             <c:forEach items="${ticketDatabase}" var="entry" >
@@ -78,6 +79,7 @@
                                 principal.username=='${entry.customerName}'">
                         [<td>${entry.customerName}</td>
                         <td>${entry.subject}</td>
+                        <td>${entry.body}</td>
                         <td>${entry.date}</td>]
                     </security:authorize>
                 </tr>
