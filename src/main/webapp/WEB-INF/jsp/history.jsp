@@ -74,9 +74,12 @@
             </tr>
             <c:forEach items="${ticketDatabase}" var="entry" >
                 <tr>
-                    <td>${entry.customerName}</td>
-                    <td>${entry.subject}</td>
-                    <td>${entry.date}</td>
+                    <security:authorize access="hasRole('ADMIN') or
+                                principal.username=='${entry.customerName}'">
+                        [<td>${entry.customerName}</td>
+                        <td>${entry.subject}</td>
+                        <td>${entry.date}</td>]
+                    </security:authorize>
                 </tr>
             </c:forEach>
         </table>
