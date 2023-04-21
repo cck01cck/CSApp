@@ -66,7 +66,7 @@
                 <input id="id" name="id" value="${ticket.id}" hidden>
                 <textarea id="message" name="message" rows="3"></textarea>
             </div>
-            <button type="submit">提交留言</button>
+            <button >提交留言</button>
         </form>
 
     </div>
