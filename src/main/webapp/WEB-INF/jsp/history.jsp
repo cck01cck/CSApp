@@ -54,7 +54,7 @@
     </c:when>
 
     <c:otherwise>
-    <div class="row">
+
         <table id="customers">
             <tr>
                 <th>Username</th>
@@ -69,13 +69,11 @@
                 </tr>
             </c:forEach>
         </table>
-        <c:forEach var="entry" items="${ticketDatabase}" varStatus="innerStatus" begin="0">
 
-        </c:forEach>
-</center>
 </c:otherwise>
 
 
 </c:choose>
+</center>
 </body>
 </html>
