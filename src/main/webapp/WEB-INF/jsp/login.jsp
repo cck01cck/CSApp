@@ -203,10 +203,10 @@
     </div>
 </div>
 <c:if test="${param.error != null}">
-    <p>Login failed.</p>
+    <p><spring:message code="label.loginFail"/></p>
 </c:if>
 <c:if test="${param.logout != null}">
-    <p>You have logged out.</p>
+    <p><spring:message code="label.loggedOut"/></p>
 </c:if>
 <h2></h2>
 

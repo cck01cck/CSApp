@@ -229,13 +229,13 @@
         <div class="form-group"><div class="field">
 
                 <input type="text" class="form-control" id="description" name="description">
-                <label for="description">Description</label>
+                <label for="description"><spring:message code="label.description"/></label>
         </div>
         </div>
         <div class="form-group"><div class="field">
 
                 <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
-                <label for="phoneNumber">PhoneNumber</label>
+                <label for="phoneNumber"><spring:message code="label.phoneNumber"/></label>
         </div>
         </div>
         <div class="form-group"><div class="field">
