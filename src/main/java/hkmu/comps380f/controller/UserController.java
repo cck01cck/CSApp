@@ -1,11 +1,14 @@
 package hkmu.comps380f.controller;
 
 
+import hkmu.comps380f.dao.TicketService;
 import hkmu.comps380f.model.TicketUser;
 import hkmu.comps380f.service.TicketUserService2;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +19,8 @@ public class UserController {
 
     @Autowired
     private TicketUserService2 ticketUserService2;
-
+    @Resource
+    private TicketService tService;
     @GetMapping("/register")
     public String showRegistrationForm() {
         return "register";

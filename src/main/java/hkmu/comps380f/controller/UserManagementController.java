@@ -1,6 +1,7 @@
 package hkmu.comps380f.controller;
 
 import hkmu.comps380f.dao.UserManagementService;
+import hkmu.comps380f.model.TicketUser;
 import hkmu.comps380f.validator.UserValidator;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;

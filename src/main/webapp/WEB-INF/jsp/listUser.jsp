@@ -76,6 +76,7 @@
                     </td>
                     <td>
                         [<a href="<c:url value="/user/delete/${user.username}" />">Delete</a>]
+                        [<a href="<c:url value="/user/edit/${user.username}" />">Edit</a>]
                     </td>
                 </tr>
             </c:forEach>

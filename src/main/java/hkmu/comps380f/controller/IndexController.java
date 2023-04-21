@@ -17,7 +17,10 @@ public class IndexController {
     public String login() {
         return "login";
     }
-
+    @GetMapping("/history")
+    public String history() {
+        return "history";
+    }
     @RequestMapping(value = { "/", "/login" })
     public String staticResource(Model model) {
         return "login";

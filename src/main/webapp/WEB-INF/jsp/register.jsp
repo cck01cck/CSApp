@@ -222,6 +222,24 @@
         </div>
         <div class="form-group"><div class="field">
 
+                <input type="text" class="form-control" id="email" name="email">
+                <label for="email">Email</label>
+        </div>
+        </div>
+        <div class="form-group"><div class="field">
+
+                <input type="text" class="form-control" id="description" name="description">
+                <label for="description">Description</label>
+        </div>
+        </div>
+        <div class="form-group"><div class="field">
+
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                <label for="phoneNumber">PhoneNumber</label>
+        </div>
+        </div>
+        <div class="form-group"><div class="field">
+
                 <input type="password" class="form-control" id="password" name="password">
                 <label for="password"><spring:message code="label.password"/></label>
         </div></div>
