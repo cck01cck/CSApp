@@ -12,7 +12,7 @@
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         transition: 0.3s;
         width: 300px;
-        padding-top: 50px;
+
 
     }
 
@@ -21,7 +21,7 @@
     }
 
     .container {
-        padding: 2px 16px;
+        padding-top: 50px;
         width: 300px;
     }
     .column {
