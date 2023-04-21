@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS user_roles (
     FOREIGN KEY (username) REFERENCES users(username)
     );
 CREATE TABLE IF NOT EXISTS comments(
-    id varchar(50) NOT NULL,
-    comments varchar(255) NOT NULL,
+    id text(50) NOT NULL,
+    comments text(255) NOT NULL,
     FOREIGN KEY (id) REFERENCES ticket(id)
     );

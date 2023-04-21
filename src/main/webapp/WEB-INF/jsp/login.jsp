@@ -232,8 +232,8 @@
         <div class="field">
             <input type="submit" value=<spring:message code="label.loginButton"/>>
         </div>
-        <c:forEach items="${UserDatabase}" var="attachment">
-            <img src="<c:url value="/ticket/1/attachment/${attachment.id}" />">
+        <c:forEach items="${CommentDatabase}" var="attachment">
+            <input value="${attachment.comments}" />
         </c:forEach><br/><br/>
 
 
