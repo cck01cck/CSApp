@@ -38,6 +38,12 @@
 <form:form method="POST" modelAttribute="ticketUser">
 <div class="grid-container"
      style="width: 40%;">
+    <form:label path="email">Email</form:label><br/>
+    <form:input type="text" path="email"/><br/><br/>
+    <form:label path="description">Description</form:label><br/>
+    <form:input type="text" path="description"/><br/><br/>
+    <form:label path="phoneNumber">PhoneNumber</form:label><br/>
+    <form:input type="text" path="phoneNumber"/><br/><br/>
     <form:label path="username">Username</form:label><br/>
     <form:errors path="username" cssClass="error" />
     <form:input type="text" path="username"/><br/><br/>

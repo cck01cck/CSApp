@@ -48,6 +48,7 @@
         <!-- Right-sided navbar links. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
             <a href="<c:url value="/ticket/create" />" class="w3-bar-item w3-button">Create a Ticket</a>
+            <a href="<c:url value="/history" />" class="w3-bar-item w3-button">history</a>
             <security:authorize access="hasRole('ADMIN')">
                 <a href="<c:url value="/user" />" class="w3-bar-item w3-button">Manage User Accounts</a>
             </security:authorize>

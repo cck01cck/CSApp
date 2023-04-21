@@ -60,6 +60,15 @@
                 </c:forEach><br/><br/>
             </c:if></span></p>
         </center>
+        <form id="comment-form" method="Get" action="comments">
+            <div>
+                <label for="message">留言：</label>
+                <input id="id" name="id" value="${ticket.id}" hidden>
+                <textarea id="message" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit">提交留言</button>
+        </form>
+
     </div>
 </div>
 </body>

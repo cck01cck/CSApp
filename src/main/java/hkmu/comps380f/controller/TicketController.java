@@ -35,6 +35,12 @@ public class TicketController {
         model.addAttribute("UserDatabase", tService.getImgs());
         return "list";
     }
+    @GetMapping("/history")
+    public String history(ModelMap model) {
+        model.addAttribute("ticketDatabase", tService.getTickets());
+        model.addAttribute("UserDatabase", tService.getImgs());
+        return "history";
+    }
 
     @GetMapping("/create")
     public ModelAndView create() {

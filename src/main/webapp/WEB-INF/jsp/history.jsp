@@ -55,13 +55,13 @@
 
     <c:otherwise>
     <div class="row">
-        <table id="customers" >
+        <table id="customers">
             <tr>
                 <th>Username</th>
                 <th>Photoname</th>
                 <th>Date and Time</th>
             </tr>
-            <c:forEach var="entry" items="${ticketDatabase}">
+            <c:forEach items="${ticketDatabase}" var="entry" >
                 <tr>
                     <td>${entry.customerName}</td>
                     <td>${entry.subject}</td>
@@ -70,6 +70,8 @@
             </c:forEach>
         </table>
         <c:forEach var="entry" items="${ticketDatabase}" varStatus="innerStatus" begin="0">
+
+        </c:forEach>
 </center>
 </c:otherwise>
 
